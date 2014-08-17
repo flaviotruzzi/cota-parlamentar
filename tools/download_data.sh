@@ -7,8 +7,7 @@ unzip AnoAtual.zip
 unzip AnoAnterior.zip
 
 # parse
-cat AnoAtual.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml | python parse_and_import.py 
-cat AnoAnterior.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml | python parse_and_import.py
+cat AnoAnterior.xml  AnoAtual.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml | python parse_and_import.py 
 
 # clean it
 rm AnoAtual.zip

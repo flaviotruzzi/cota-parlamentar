@@ -102,5 +102,5 @@ def insert_data(file_handler):
     if bulk:
         bulk_index(es, bulk)
 
-
-insert_data(sys.stdin)
+if __name__ == '__main__':
+    insert_data(sys.stdin)
