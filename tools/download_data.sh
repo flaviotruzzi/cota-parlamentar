@@ -6,9 +6,6 @@ wget http://www.camara.gov.br/cotas/AnoAnterior.zip
 unzip AnoAtual.zip 
 unzip AnoAnterior.zip
 
-# data directory
-mkdir ../data
-
 # parse
 cat AnoAtual.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml | python parse_and_import.py 
 cat AnoAnterior.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml | python parse_and_import.py
