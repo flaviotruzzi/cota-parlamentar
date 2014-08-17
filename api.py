@@ -60,8 +60,9 @@ def get_spending_by_party(party):
 
 @app.route("/gasto/party", methods=["GET"])
 def get_spending_rank():
-    # TODO
-    pass
+    parties = get_parties()
+    return json.dumps({party: get_spending_by_party(party) for
+                       party in json.loads(parties)})
 
 
 if __name__ == "__main__":
