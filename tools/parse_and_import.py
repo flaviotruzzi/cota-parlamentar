@@ -9,7 +9,7 @@ import sys
 import xmltodict
 
 
-INDEX = "senadores"
+INDEX = "deputados"
 TYPE = "despesa"
 
 
