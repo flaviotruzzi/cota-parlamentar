@@ -12,8 +12,15 @@ RUN apt-get install --no-install-recommends -y nodejs-legacy memcached python-py
 RUN apt-get install --no-install-recommends -y python-statsd gcc make libssl-dev git libxml2-dev
 RUN apt-get install --no-install-recommends -y libxslt-dev python-lxml vim nano tidy
 
-RUN pip install xmltodict
+# Elasticsearch
+wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.tar.gz
+tar -xf elasticsearch-1.3.2.tar.gz
 
 WORKDIR /home/
 
 RUN git clone http://github.com/flaviotruzzi/cota-parlamentar.git
+
+WORKDIR /home/cota-parlamentar
+
+RUN pip install -r requirements.txt
+
