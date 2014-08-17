@@ -12,6 +12,41 @@ import xmltodict
 INDEX = "deputados"
 TYPE = "despesa"
 
+MAPPING_DESPESA = {
+    "mappings": {
+        "despesa": {
+            "properties": {
+                "vlrLiquido": {"type": "double"},
+                "vlrGlosa": {"type": "double"},
+                "vlrDocumento": {"type": "double"},
+                "txtTrecho": {"type": "string"},
+                "txtPassageiro": {"type": "string"},
+                "txtNumero": {"type": "string"},
+                "txtDescricaoEspecificacao": {"type": "string"},
+                "txtDescricao": {"type": "string"},
+                "txtCNPJCPF": {"type": "string"},
+                "txtBeneficiario": {"type": "string"},
+                "numEspecificacaoSubCota": {"type": "integer"},
+                "numAno": {"type": "date", "format": "year"},
+                "nuLegislatura": {"type": "string"},
+                "nuCarteiraParlamentar": {"type": "integer"},
+                "indTipoDocumento": {"type": "integer"},
+                "ideCadastro": {"type": "string"},
+                "datEmissao": {"format": "dateOptionalTime", "type": "date"},
+                "codLegislatura": {"type": "integer"},
+                "numLote": {"type": "integer"},
+                "numMes": {"type": "integer"},
+                "numParcela": {"type": "integer"},
+                "numRessarcimento": {"type": "integer"},
+                "numSubCota": {"type": "integer"},
+                "sgPartido": {"type": "string"},
+                "sgUF": {"type": "string"},
+                "txNomeParlamentar": {"type": "string"}
+            }
+        }
+    }
+}
+
 
 def dump_despesa(stack):
     """
@@ -49,13 +84,19 @@ def insert_data(file_handler):
 
     despesas = get_despesas(codecs.getreader('utf-8')(file_handler))
 
+    # delete index before re-importing
+    if es.indices.exists(INDEX):
+        es.indices.delete(INDEX)
+
+    es.indices.create(index=INDEX, body=MAPPING_DESPESA)
+
     bulk = []
     for line in despesas:
         body = json.loads(line)
 
         bulk.append({"_index": INDEX, "_type": TYPE, "_source": body})
 
-        if len(bulk) % 1000 == 0:
+        if len(bulk) % 2000 == 0:
             bulk_index(es, bulk)
             bulk = []
     if bulk:
@@ -63,6 +104,3 @@ def insert_data(file_handler):
 
 
 insert_data(sys.stdin)
-
-# TODO: Criar um mapping apropriado.
-# TODO: Transformar campos de string para double/date e afins
