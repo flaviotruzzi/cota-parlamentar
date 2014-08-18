@@ -20,7 +20,7 @@ MAPPING_DESPESA = {
                 "vlrGlosa": {"type": "double"},
                 "vlrDocumento": {"type": "double"},
                 "txtTrecho": {"type": "string"},
-                "txtPassageiro": {"type": "string"},
+                "txtPassageiro": {"type": "string", "index": "not_analyzed"},
                 "txtNumero": {"type": "string"},
                 "txtDescricaoEspecificacao": {"type": "string"},
                 "txtDescricao": {"type": "string"},
@@ -41,7 +41,8 @@ MAPPING_DESPESA = {
                 "numSubCota": {"type": "integer"},
                 "sgPartido": {"type": "string"},
                 "sgUF": {"type": "string"},
-                "txNomeParlamentar": {"type": "string"}
+                "txNomeParlamentar": {"type": "string",
+                                      "index": "not_analyzed"}
             }
         }
     }
