@@ -7,10 +7,15 @@ unzip AnoAtual.zip
 unzip AnoAnterior.zip
 
 # parse
-cat AnoAnterior.xml  AnoAtual.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml | python parse_and_import.py 
+#cat AnoAnterior.xml  AnoAtual.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml | python parse_and_import.py 
+cat AnoAnterior.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml > ano_anterior.xml
+cat AnoAtual.xml | tidy -utf8 -xml -w 255 -i -c -q -asxml > ano_atual.xml
+cat ano_anterior.xml ano_atual.xml | python parse_and_import.py
 
 # clean it
 rm AnoAtual.zip
 rm AnoAnterior.zip
 rm AnoAtual.xml
 rm AnoAnterior.xml
+rm ano_anterior.xml
+rm ano_atual.xml
