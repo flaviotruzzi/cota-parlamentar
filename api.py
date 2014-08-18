@@ -43,7 +43,7 @@ def get_spending_by_name(name):
     return json.dumps(result["aggregations"]["spending"])
 
 
-@app.route("/gasto/party/<name>", methods=["GET"])
+@app.route("/gasto/party/<party>", methods=["GET"])
 def get_spending_by_party(party):
     query = {
         "query": {
@@ -60,9 +60,10 @@ def get_spending_by_party(party):
 
 @app.route("/gasto/party", methods=["GET"])
 def get_spending_rank():
-    # TODO
-    pass
+    parties = get_parties()
+    return json.dumps({party: get_spending_by_party(party) for
+                       party in json.loads(parties)})
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
