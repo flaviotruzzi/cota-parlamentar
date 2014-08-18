@@ -97,5 +97,5 @@ def get_spending_rank_by_congressman():
     return json.dumps({congressman: get_spending_by_name(congressman) for
                        congressman in json.loads(congressmans)})
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
