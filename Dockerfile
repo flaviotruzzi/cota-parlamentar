@@ -7,10 +7,10 @@ RUN apt-get update
 RUN apt-get install --no-install-recommends -y curl openjdk-7-jre-headless python-pip 
 RUN apt-get install --no-install-recommends -y python-dev python-simplejson python-requests 
 RUN apt-get install --no-install-recommends -y python-boto python-flask python-mock 
-RUN apt-get install --no-install-recommends -y python-openssl nginx python-nose nodejs 
-RUN apt-get install --no-install-recommends -y nodejs-legacy memcached python-pylibmc 
-RUN apt-get install --no-install-recommends -y python-statsd gcc make libssl-dev git libxml2-dev
-RUN apt-get install --no-install-recommends -y libxslt-dev python-lxml vim nano tidy
+RUN apt-get install --no-install-recommends -y python-openssl nodejs nodejs-legacy
+RUN apt-get install --no-install-recommends -y python-pylibmc git libxml2-dev
+RUN apt-get install --no-install-recommends -y gcc make libssl-dev libxslt-dev 
+RUN apt-get install --no-install-recommends -y python-lxml vim nano tidy
 
 # Elasticsearch
 wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.tar.gz
