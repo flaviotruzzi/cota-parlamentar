@@ -12,7 +12,7 @@ app = Flask(__name__)
 es = elasticsearch.Elasticsearch()
 
 
-@app.route("/parties", methods=["GET"])
+@app.route("/partidos", methods=["GET"])
 @lru_cache(maxsize=1)
 def get_parties(with_counts=None):
     query = {
@@ -66,7 +66,7 @@ def get_spending_by_name(name):
     return json.dumps(result["aggregations"]["spending"])
 
 
-@app.route("/gasto/party/<party>", methods=["GET"])
+@app.route("/gasto/partidos/<party>", methods=["GET"])
 @lru_cache(maxsize=20)
 def get_spending_by_party(party):
     query = {
@@ -82,7 +82,7 @@ def get_spending_by_party(party):
     return json.dumps(result["aggregations"]["spending"])
 
 
-@app.route("/gasto/party", methods=["GET"])
+@app.route("/gasto/partidos", methods=["GET"])
 @lru_cache(maxsize=1)
 def get_spending_rank_by_party():
     parties = get_parties()
