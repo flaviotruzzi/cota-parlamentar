@@ -1,4 +1,6 @@
 *.xml
 *.zip
-*.json
 *.pyc
+tools/*.json
+client/bower_components/
+client/node_modules/
