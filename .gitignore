@@ -2,3 +2,7 @@
 *.zip
 *.json
 *.pyc
+.idea
+.idea_modules/
+target
+data
