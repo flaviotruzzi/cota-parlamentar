@@ -1,8 +1,10 @@
 *.xml
 *.zip
-*.json
 *.pyc
 .idea
 .idea_modules/
 target
 data
+tools/*.json
+client/bower_components/
+client/node_modules/
