@@ -7,11 +7,23 @@ cotaApp.directive('barChart', [
 			},
 			link: function(scope, element, attrs){
 				var svg = d3.select(element[0])
-										.append("svg");
+										.append("svg")
+										.style('width', '100%');
 
+				// watch for data changes
 				scope.$watch('data', function(data){
 					scope.render(data);
 				}, true);
+
+				// on window resize, re-render d3 canvas
+        window.onresize = function() {
+          return scope.$apply();
+        };
+				scope.$watch(function() {
+					return angular.element(window)[0].innerWidth;
+				}, function() {
+					scope.render(scope.data);
+				});
 
 				scope.render = function(data) {
 					// remove all previous items before render
@@ -22,8 +34,8 @@ cotaApp.directive('barChart', [
 
 					// setup variables
 					var margin = {top: 40, right: 20, bottom: 30, left: 40},
-					    width = 960 - margin.left - margin.right,
-					    height = 500 - margin.top - margin.bottom;
+					    width = svg.node().offsetWidth - margin.left - margin.right,
+					    height = 350 - margin.top - margin.bottom;
 
 					var formatPercent = d3.format(".0%");
 
