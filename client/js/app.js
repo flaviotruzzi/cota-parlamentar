@@ -3,8 +3,7 @@
 /* App Module */
 
 var cotaApp = angular.module('cotaApp', [
-  'ngRoute',
-  'cotaControllers'
+  'ngRoute'
 ]);
 
 cotaApp.config(['$routeProvider',
