@@ -16,10 +16,13 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- SB admin theme -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <!-- Font awesome -->
+    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/styles.css" rel="stylesheet">
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -37,24 +40,31 @@
     <script src="js/directives.js"></script>
   </head>
 
-  <body role="document">
+  <body>
+    <div id="wrapper">
+      <div ng-include="'left-panel.html'" layout="vertical"></div>
+      <div ng-view class="view-frame"></div>
+    </div>
+  </body>
+
+  <!-- <body role="document"> -->
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#/">Home</a></li>
             <li><a href="#about">Sobre</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
-    </nav>
+    </nav> -->
 
-    <div class="container theme-showcase" role="main">
+    <!-- <div class="container theme-showcase" role="main"> -->
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron" style="padding-bottom:20px">
+      <!-- <div class="jumbotron" style="padding-bottom:20px">
         <h1 style="text-align:center">Quanto custa o seu Deputado?</h1>
       </div>
 
@@ -66,8 +76,8 @@
         </form>
       </div>
 
-      <div ng-view class="view-frame"></div>
-
-    </div> <!-- /container -->
-  </body>
+      <div ng-view class="view-frame"></div> -->
+<!--
+    </div>
+  </body> -->
 </html>
