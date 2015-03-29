@@ -13,6 +13,18 @@ cotaApp.config(['$routeProvider',
         templateUrl: 'partials/home.html',
         controller: 'HomeCtrl'
       }).
+      when('/average', {
+        templateUrl: 'partials/average.html',
+        controller: 'AverageCtrl'
+      }).
+      when('/partido', {
+        templateUrl: 'partials/partido.html',
+        controller: 'PartidoCtrl'
+      }).
+      when('/partido/:partido', {
+        templateUrl: 'partials/partido.html',
+        controller: 'PartidoCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });

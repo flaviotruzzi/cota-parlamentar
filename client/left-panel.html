@@ -1,3 +1,10 @@
+<script charset="utf-8">
+  $(".nav a").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+  });
+</script>
+
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,16 +24,19 @@
                 <a href="#/"><i class="fa fa-fw fa-bar-chart-o"></i> Total por Partido</a>
             </li>
             <li>
-                <a href="#/media"><i class="fa fa-fw fa-bar-chart-o"></i> Média por Partido</a>
+                <a href="#/average"><i class="fa fa-fw fa-line-chart"></i> Média por Partido</a>
             </li>
             <li>
-                <a href="tables.html"><i class="fa fa-fw fa-table"></i> Gasto por Deputado</a>
+                <a href="#/partido"><i class="fa fa-fw fa-money"></i> Gastos por Partido</a>
             </li>
             <li>
-                <a href="about.html"><i class="fa fa-fw fa-bookmark"></i> Sobre</a>
+                <a href="#/deputado"><i class="fa fa-fw fa-user"></i> Gastos por Deputado</a>
             </li>
             <li>
-                <a href="tables.html"><i class="fa fa-fw fa-heart"></i> Doe aqui</a>
+                <a href="#/about"><i class="fa fa-fw fa-bookmark"></i> Sobre</a>
+            </li>
+            <li>
+                <a href="#/donate"><i class="fa fa-fw fa-heart"></i> Doe aqui</a>
             </li>
             <!-- <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
