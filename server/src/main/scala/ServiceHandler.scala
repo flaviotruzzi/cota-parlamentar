@@ -1,5 +1,5 @@
 import akka.actor.{Actor, ActorLogging, ActorRefFactory}
-import api.{MasterJsonProtocol, PartidoOps}
+import api.{Deputados, Partidos, MasterJsonProtocol}
 import spray.routing.HttpService
 
 
@@ -11,12 +11,29 @@ class ServiceHandler extends Actor with HttpService with ActorLogging {
   import spray.httpx.SprayJsonSupport._
 
   override def receive: Receive = runRoute(
-    path("partido" / Segment) {
-      (partido) =>
+    path("partidos" / Segment) {
+      partido =>
         get {
-          complete{
-            PartidoOps.totalCost(partido)
-          }
+          complete(Partidos(partido))
+        }
+    }
+    ~
+    path("partidos") {
+      get {
+        complete(Partidos.listPartidos)
+      }
+    }
+    ~
+    path("deputados") {
+      get {
+        complete(Partidos.listDeputados)
+      }
+    }
+    ~
+    path("deputados" / Segment) {
+      deputadoId =>
+        get {
+          complete(Deputados(deputadoId))
         }
     }
   )

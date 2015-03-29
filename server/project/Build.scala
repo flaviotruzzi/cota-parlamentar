@@ -5,7 +5,10 @@ import com.zavakid.sbt._
 
 object CotaParlamentarBuild extends Build {
 
-  lazy val root = Project(base = file("."), id = "cota-parlamentar").enablePlugins(SbtOneLog)
+  val root = Project(
+    id = "cota-parlamentar",
+    base = file("."),
+    settings = Revolver.settings) enablePlugins SbtOneLog
 
   override val settings = super.settings ++ Seq(
     name := "cota-parlamentar",
@@ -40,6 +43,7 @@ object Dependencies {
     "org.joda" % "joda-convert" % "1.7",
     "io.spray" %%  "spray-json" % "1.3.1",
     "io.spray" %% "spray-can" % "1.3.2",
+    "io.spray" %% "spray-caching" % "1.3.2",
     "io.spray" %% "spray-routing" % "1.3.2",
     "io.spray" %% "spray-http" % "1.3.2",
     "io.spray" %% "spray-client" % "1.3.2",

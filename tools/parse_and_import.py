@@ -19,10 +19,20 @@ MAPPING_DESPESA = {
                 "vlrLiquido": {"type": "double"},
                 "vlrGlosa": {"type": "double"},
                 "vlrDocumento": {"type": "double"},
-                "txtTrecho": {"type": "string"},
-                "txtPassageiro": {"type": "string", "index": "not_analyzed"},
-                "txtNumero": {"type": "string"},
-                "txtDescricaoEspecificacao": {"type": "string"},
+                "txtTrecho": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "txtPassageiro": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "txtNumero": {"type": "string",
+                              "index": "not_analyzed"
+                },
+                "txtDescricaoEspecificacao": {
+                    "type": "string"
+                },
                 "txtDescricao": {"type": "string"},
                 "txtCNPJCPF": {"type": "string"},
                 "txtBeneficiario": {"type": "string"},
@@ -32,17 +42,28 @@ MAPPING_DESPESA = {
                 "nuCarteiraParlamentar": {"type": "integer"},
                 "indTipoDocumento": {"type": "integer"},
                 "ideCadastro": {"type": "string"},
-                "datEmissao": {"format": "dateOptionalTime", "type": "date"},
+                "datEmissao": {
+                    "format": "dateOptionalTime",
+                    "type": "date"
+                },
                 "codLegislatura": {"type": "integer"},
                 "numLote": {"type": "integer"},
                 "numMes": {"type": "integer"},
                 "numParcela": {"type": "integer"},
                 "numRessarcimento": {"type": "integer"},
                 "numSubCota": {"type": "integer"},
-                "sgPartido": {"type": "string"},
+                "sgPartido": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
                 "sgUF": {"type": "string"},
-                "txNomeParlamentar": {"type": "string",
-                                      "index": "not_analyzed"}
+                "txNomeParlamentar": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "fields": {
+                        "parsed": {"type": "string"}
+                    }
+                }
             }
         }
     }
